@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "6394943f-b57c-4c04-acf9-391a8614103b",
+		"name": "TaskList Public GraphQL API",
+		"description": "# Manage Tasks via API.\n\n## What do you need to make it work?\n\n1.  You need to get JWT access token from Tasklist to authenticate. To retrieve an access token for the Tasklist API client go to: [https://docs.camunda.io/docs/self-managed/tasklist-deployment/configuration/](https://docs.camunda.io/docs/self-managed/tasklist-deployment/configuration/)\n    \n\nand run in terminal:\n\nPlain Text\n\n``` bash\ncurl -X POST -H 'content-type: application/json' -d '{\"client_id\": \"RgVdPv...\", \"client_secret\":\"eDS1~Hg...\",\"audience\":\"tasklist.camunda.io\",\"grant_type\":\"client_credentials\"}' https://login.cloud.camunda.io/oauth/token\n\n```\n\n2\\. In environment variables set:\n\n*   baseUrlTasklist - URL of your Tasklist - in form like  \n    [https://bru-2.tasklist.camunda.io/{{clusterID}}](https://bru-2.tasklist.camunda.io/{{clusterID}})\n*   clusterID - you can get that from your Cluster Details\n*   barerTokenTasklist - set to the Token that you get from the curl described in the guide above\n*   apiVersion - currently default is v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutations",
+			"item": [
+				{
+					"name": "completeTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation completeTask ($taskId: String!, $variables: [VariableInput!]!) {\n    completeTask (taskId: $taskId, variables: $variables) {\n        id\n        name\n        taskDefinitionId\n        processName\n        creationTime\n        completionTime\n        assignee\n        variables {\n            id\n            name\n            value\n            previewValue\n            isValueTruncated\n        }\n        taskState\n        sortValues\n        isFirst\n        formKey\n        processDefinitionId\n        candidateGroups\n    }\n}",
+								"variables": "{\n  \"taskId\": \"\",\n  \"variables\": {\n    \"name\": \"\",\n    \"value\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "claimTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation claimTask ($taskId: String!, $assignee: String) {\n    claimTask (taskId: $taskId, assignee: $assignee) {\n        id\n        name\n        taskDefinitionId\n        processName\n        creationTime\n        completionTime\n        assignee\n        variables {\n            id\n            name\n            value\n            previewValue\n            isValueTruncated\n        }\n        taskState\n        sortValues\n        isFirst\n        formKey\n        processDefinitionId\n        candidateGroups\n    }\n}",
+								"variables": "{\n  \"taskId\": \"\",\n  \"assignee\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unclaimTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation unclaimTask ($taskId: String!) {\n    unclaimTask (taskId: $taskId) {\n        id\n        name\n        taskDefinitionId\n        processName\n        creationTime\n        completionTime\n        assignee\n        variables {\n            id\n            name\n            value\n            previewValue\n            isValueTruncated\n        }\n        taskState\n        sortValues\n        isFirst\n        formKey\n        processDefinitionId\n        candidateGroups\n    }\n}",
+								"variables": "{\n  \"taskId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProcessInstance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation deleteProcessInstance ($processInstanceId: String!) {\n    deleteProcessInstance (processInstanceId: $processInstanceId)\n}",
+								"variables": "{\n  \"processInstanceId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "tasks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query tasks ($query: TaskQuery!) {\n    tasks (query: $query) {\n        id\n        name\n        taskDefinitionId\n        processName\n        creationTime\n        completionTime\n        assignee\n        variables {\n            id\n            name\n            value\n            previewValue\n            isValueTruncated\n        }\n        taskState\n        sortValues\n        isFirst\n        formKey\n        processDefinitionId\n        candidateGroups\n    }\n}",
+								"variables": "{\n  \"query\": {\n    \"state\": \"\",\n    \"assigned\": true,\n    \"assignee\": \"\",\n    \"candidateGroup\": \"\",\n    \"pageSize\": 0,\n    \"taskDefinitionId\": \"\",\n    \"searchAfter\": [\n      \"\"\n    ],\n    \"searchAfterOrEqual\": [\n      \"\"\n    ],\n    \"searchBefore\": [\n      \"\"\n    ],\n    \"searchBeforeOrEqual\": [\n      \"\"\n    ]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query task ($id: String!) {\n    task (id: $id) {\n        id\n        name\n        taskDefinitionId\n        processName\n        creationTime\n        completionTime\n        assignee\n        variables {\n            id\n            name\n            value\n            previewValue\n            isValueTruncated\n        }\n        taskState\n        sortValues\n        isFirst\n        formKey\n        processDefinitionId\n        candidateGroups\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currentUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query currentUser {\n    currentUser {\n        userId\n        displayName\n        permissions\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "form",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query form ($id: String!, $processDefinitionId: String!) {\n    form (id: $id, processDefinitionId: $processDefinitionId) {\n        id\n        processDefinitionId\n        schema\n    }\n}",
+								"variables": "{\n  \"id\": \"\",\n  \"processDefinitionId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "variables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query variables ($taskId: String!, $variableNames: [String!]!) {\n    variables (taskId: $taskId, variableNames: $variableNames) {\n        id\n        name\n        value\n        previewValue\n        isValueTruncated\n    }\n}",
+								"variables": "{\n  \"taskId\": \"\",\n  \"variableNames\": [\n    \"\"\n  ]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "variable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query variable ($id: String!) {\n    variable (id: $id) {\n        id\n        name\n        value\n        previewValue\n        isValueTruncated\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{barerTokenTasklist}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "{{baseUrlTasklist}}",
+			"type": "any"
+		}
+	]
+}

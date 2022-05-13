@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "4cdcc6f4-88af-4d88-a345-270135f8a4c4",
+		"name": "Operate Public API - Self-Managed",
+		"description": "## What does it take to make it work?\n\n### 1.Set variables:\n\n*   baseUrlOperateLocal - URL of your Self-Managed deployment - default is localhost:8081 - if doesn't work, check your ports mapping - define it in the global or environment scope\n*   apiVersion - currently supported is and default is v1 - define it in the global or environment scope\n*   username and password - change it if different than demo/demo - in collection variables\n    \n\n### 2\\. Your Operate is up and running in Self-Managed mode\n\n### 3\\. Execute API requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Process definitions",
+			"item": [
+				{
+					"name": "Search for process definitions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-definitions/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-definitions",
+								"search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl+ApiVersion}}/process-definitions/search",
+									"host": [
+										"{{baseUrl+ApiVersion}}"
+									],
+									"path": [
+										"process-definitions",
+										"search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 11:00:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get process definition by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-definitions/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-definitions",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of process definition"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get process defintion by key as XML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-definitions/:key/xml",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-definitions",
+								":key",
+								"xml"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of process definition"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Process instances",
+			"item": [
+				{
+					"name": "Search for process instances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-instances/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-instances",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get process instance by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-instances/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-instances",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813685484",
+									"description": "Key of process instance"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete process instance and dependant data by key",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/process-instances/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"process-instances",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813685484",
+									"description": "Key of process instance"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incidents",
+			"item": [
+				{
+					"name": "Search for incidents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/incidents/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"incidents",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get incident by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/incidents/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"incidents",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813685702",
+									"description": "Key of process instance"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flownode instances",
+			"item": [
+				{
+					"name": "Search for flow node instances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/flownode-instances/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"flownode-instances",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get flow node instance by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/flownode-instances/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"flownode-instances",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813685511",
+									"description": "Key of flownode instance"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Search for variables",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/variables/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"variables",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get variable by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/variables/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"variables",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813685520",
+									"description": "Key of variable"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const getAllHeadersContaining = function(key, response) {",
+					"    var result = '';",
+					"    response.headers.each((header) => {",
+					"        if (String(header.value) === key) {",
+					"            result +=  header.valueOf() + '; ';",
+					"        }",
+					"    });",
+					"    return result;",
+					"}",
+					"",
+					"const baseUrl = pm.variables.get(\"baseUrl\");",
+					"const username = pm.variables.get(\"username\");",
+					"const password = pm.variables.get(\"password\");",
+					"",
+					"",
+					"const postRequest = {",
+					"  url: baseUrl + '/api/login?username=' + username + '&password=' + password,",
+					"  method: 'POST'",
+					"};",
+					"",
+					"pm.sendRequest(postRequest, function (err, response) {",
+					"    console.log(response.headers.get('Set-Cookie'));",
+					"    ",
+					"    let token = response.headers.get('OPERATE-X-CSRF-TOKEN');",
+					"    ",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-HEADER',",
+					"        value: 'OPERATE-X-CSRF-HEADER'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-HEADER',",
+					"        value: 'OPERATE-X-CSRF-HEADER'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-PARAM',",
+					"        value: 'OPERATE-X-CSRF-PARAM'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-TOKEN',",
+					"        value: token",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'Cookie',",
+					"        value: getAllHeadersContaining('OPERATE-SESSION', response)",
+					"    });",
+					"});",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl+ApiVersion",
+			"value": "{{baseUrlOperateLocal}}/{{apiVersion}}"
+		},
+		{
+			"key": "username",
+			"value": "demo",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "demo",
+			"type": "string"
+		}
+	]
+}

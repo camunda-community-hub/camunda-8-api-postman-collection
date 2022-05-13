@@ -1,0 +1,1339 @@
+{
+	"info": {
+		"_postman_id": "4c378140-b9ca-4f2d-b4d5-479ab0fcc472",
+		"name": "Camunda Cloud Management API",
+		"description": "# Manage Camunda Cloud Clusters and API Clients via API.\n\n## What do you need to make it work?\n\n1.  You need to get Barer Token from Console to authenticate. To retrieve an access token for the Cloud API client go to: [https://docs.camunda.io/docs/apis-clients/console-api-reference/](https://docs.camunda.io/docs/apis-clients/console-api-reference/In)\n2.  In environment variables set:\n    \n\n*   baseUrlConsole to  \n    [https://api.cloud.camunda.io](https://api.cloud.camunda.io)\n*   barerTokenConsole - set to the Token that you get from the curl described in the guide above",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clusters",
+			"item": [
+				{
+					"name": "{cluster Uuid}",
+					"item": [
+						{
+							"name": "clients",
+							"item": [
+								{
+									"name": "{client Id}",
+									"item": [
+										{
+											"name": "Get Client",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients",
+														":clientId"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														},
+														{
+															"key": "clientId",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "The connection parameters needed to use the client with your Camunda Cloud cluster.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"name\": \"ea do\",\n  \"ZEEBE_ADDRESS\": \"Lorem sint\",\n  \"ZEEBE_CLIENT_ID\": \"Ut aliqua\",\n  \"ZEEBE_AUTHORIZATION_SERVER_URL\": \"voluptate exercitation cillum\"\n}"
+												},
+												{
+													"name": "cluster is not yours",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "cluster or client not found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "the cluster is not ready; please try again later",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Precondition Failed",
+													"code": 412,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Delete Client",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients",
+														":clientId"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														},
+														{
+															"key": "clientId",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Irreversibly deletes a cluster client."
+											},
+											"response": [
+												{
+													"name": "No content",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "cluster is not yours",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "cluster or client not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/clusters/:clusterUuid/clients/:clientId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"clusters",
+																":clusterUuid",
+																"clients",
+																":clientId"
+															],
+															"variable": [
+																{
+																	"key": "clusterUuid",
+																	"value": "ut",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "clientId",
+																	"value": "ut",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get Clients",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid",
+												"clients"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "A list of all the clients currently configured for your Camunda Cloud cluster.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"name\": \"sunt incididunt sit\",\n    \"clientId\": \"irure et eu aute\",\n    \"permissions\": [\n      \"Operate\",\n      \"Tasklist\"\n    ]\n  },\n  {\n    \"name\": \"nostrud aliquip ex Ut\",\n    \"clientId\": \"ut dolor\",\n    \"permissions\": [\n      \"Zeebe\",\n      \"Operate\"\n    ]\n  }\n]"
+										},
+										{
+											"name": "cluster is not yours",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "cluster not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Create Client",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clientName\": \"elit esse\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid",
+												"clients"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Ok",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"clientName\": \"elit esse\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"uuid\": \"nisi ea\",\n  \"clientId\": \"est dolor\",\n  \"clientSecret\": \"Duis laboris\"\n}"
+										},
+										{
+											"name": "client names must be unique",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"clientName\": \"elit esse\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "maximum number of clients reached or cluster is not yours",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"clientName\": \"elit esse\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "cluster not found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"clientName\": \"elit esse\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/clusters/:clusterUuid/clients",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"clusters",
+														":clusterUuid",
+														"clients"
+													],
+													"variable": [
+														{
+															"key": "clusterUuid",
+															"value": "ut",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get Cluster",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clusters/:clusterUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters",
+										":clusterUuid"
+									],
+									"variable": [
+										{
+											"key": "clusterUuid",
+											"value": "ut",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Detailed information for the given clusterUuid.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"uuid\": \"amet in\",\n  \"name\": \"et aliqua\",\n  \"created\": \"1969-06-07T23:40:36.215Z\",\n  \"planType\": {\n    \"name\": \"reprehenderit occaecat\",\n    \"uuid\": \"sunt in dol\"\n  },\n  \"region\": {\n    \"name\": \"cupidatat\",\n    \"uuid\": \"anim\"\n  },\n  \"generation\": {\n    \"name\": \"in ea\",\n    \"uuid\": \"sed irure aliquip enim\"\n  },\n  \"channel\": {\n    \"name\": \"Lo\",\n    \"uuid\": \"ut Ut amet\"\n  },\n  \"status\": {\n    \"ready\": \"Updating\",\n    \"optimizeStatus\": \"Healthy\",\n    \"tasklistStatus\": \"Creating\",\n    \"operateStatus\": \"Updating\",\n    \"zeebeStatus\": \"Unhealthy\"\n  },\n  \"links\": {\n    \"optimize\": \"Ut officia do ex quis\",\n    \"tasklist\": \"ea\",\n    \"operate\": \"nulla aliquip\",\n    \"zeebe\": \"tempor ad commodo\"\n  }\n}"
+								},
+								{
+									"name": "cluster not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete Cluster",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clusters/:clusterUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters",
+										":clusterUuid"
+									],
+									"variable": [
+										{
+											"key": "clusterUuid",
+											"value": "ut",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Irreversibly deletes a cluster identified by the given clusterUuid."
+							},
+							"response": [
+								{
+									"name": "No content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "cluster not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/clusters/:clusterUuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"clusters",
+												":clusterUuid"
+											],
+											"variable": [
+												{
+													"key": "clusterUuid",
+													"value": "ut",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get Clusters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/clusters",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clusters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of all your Camunda Cloud clusters.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clusters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"uuid\": \"velit quis nulla consequat do\",\n    \"name\": \"irure ut mollit\",\n    \"created\": \"1957-04-20T04:34:56.848Z\",\n    \"planType\": {\n      \"name\": \"do\",\n      \"uuid\": \"reprehenderit ex\"\n    },\n    \"region\": {\n      \"name\": \"dolor dolor dolore Excepteur\",\n      \"uuid\": \"reprehenderit veniam nost\"\n    },\n    \"generation\": {\n      \"name\": \"fugiat nulla\",\n      \"uuid\": \"Duis deserunt id\"\n    },\n    \"channel\": {\n      \"name\": \"dolore do amet\",\n      \"uuid\": \"in anim exercitation ut\"\n    },\n    \"status\": {\n      \"ready\": \"Healthy\",\n      \"optimizeStatus\": \"Unhealthy\",\n      \"tasklistStatus\": \"Unhealthy\",\n      \"operateStatus\": \"Updating\",\n      \"zeebeStatus\": \"Unhealthy\"\n    },\n    \"links\": {\n      \"optimize\": \"Lorem dolor cillum\",\n      \"tasklist\": \"et aute\",\n      \"operate\": \"nisi incididunt veniam in\",\n      \"zeebe\": \"est consequat\"\n    }\n  },\n  {\n    \"uuid\": \"nostrud\",\n    \"name\": \"velit\",\n    \"created\": \"1966-06-04T23:18:58.321Z\",\n    \"planType\": {\n      \"name\": \"id sunt deserunt\",\n      \"uuid\": \"eu dolore\"\n    },\n    \"region\": {\n      \"name\": \"aliqua\",\n      \"uuid\": \"Duis ut culpa anim\"\n    },\n    \"generation\": {\n      \"name\": \"mollit incididunt minim\",\n      \"uuid\": \"pariatur esse laborum cupidatat\"\n    },\n    \"channel\": {\n      \"name\": \"dolor anim minim reprehenderit\",\n      \"uuid\": \"ex nostrud ut\"\n    },\n    \"status\": {\n      \"ready\": \"Updating\",\n      \"optimizeStatus\": \"Updating\",\n      \"tasklistStatus\": \"Unhealthy\",\n      \"operateStatus\": \"Updating\",\n      \"zeebeStatus\": \"Unhealthy\"\n    },\n    \"links\": {\n      \"optimize\": \"amet in cillum repre\",\n      \"tasklist\": \"consequat laborum nisi qui\",\n      \"operate\": \"in nostrud\",\n      \"zeebe\": \"eu ea dolore ullamco\"\n    }\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Cluster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"eu est\",\n  \"planTypeId\": \"tempor laboris dolor commodo amet\",\n  \"channelId\": \"et mollit\",\n  \"generationId\": \"incididunt minim\",\n  \"regionId\": \"voluptate pa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clusters",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clusters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The clusterUuid of your new cluster.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"eu est\",\n  \"planTypeId\": \"tempor laboris dolor commodo amet\",\n  \"channelId\": \"et mollit\",\n  \"generationId\": \"incididunt minim\",\n  \"regionId\": \"voluptate pa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clusters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"clusterId\": \"labore exercitation\"\n}"
+						},
+						{
+							"name": "name is too long, invalid clusterPlanType, invalid region, no reservations left, invalid channel, or invalid generation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"eu est\",\n  \"planTypeId\": \"tempor laboris dolor commodo amet\",\n  \"channelId\": \"et mollit\",\n  \"generationId\": \"incididunt minim\",\n  \"regionId\": \"voluptate pa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clusters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Parameters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/clusters/parameters",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clusters",
+								"parameters"
+							]
+						},
+						"description": "Gets all possible options to create a Camunda Cloud cluster."
+					},
+					"response": [
+						{
+							"name": "Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/clusters/parameters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clusters",
+										"parameters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"channels\": [\n    {\n      \"allowedGenerations\": [\n        {\n          \"name\": \"ad ex cillum\",\n          \"uuid\": \"ut mollit ipsum\"\n        },\n        {\n          \"name\": \"enim consectetur\",\n          \"uuid\": \"cupidatat ex aute\"\n        }\n      ],\n      \"defaultGeneration\": {\n        \"name\": \"mollit fugiat Excepteur\",\n        \"uuid\": \"non culpa sed occaecat ut\"\n      },\n      \"name\": \"eu in nisi cupidatat\",\n      \"uuid\": \"an\"\n    },\n    {\n      \"allowedGenerations\": [\n        {\n          \"name\": \"quis sunt\",\n          \"uuid\": \"aliquip enim offic\"\n        },\n        {\n          \"name\": \"in officia ipsum labore\",\n          \"uuid\": \"enim magna\"\n        }\n      ],\n      \"defaultGeneration\": {\n        \"name\": \"Ut aliquip sit mollit\",\n        \"uuid\": \"aliquip veniam sit\"\n      },\n      \"name\": \"irure ea\",\n      \"uuid\": \"exercitation\"\n    }\n  ],\n  \"clusterPlanTypes\": [\n    {\n      \"region\": {\n        \"name\": \"quis sunt\",\n        \"uuid\": \"nisi minim\"\n      },\n      \"name\": \"nulla\",\n      \"uuid\": \"ad mollit\"\n    },\n    {\n      \"region\": {\n        \"name\": \"minim dolore\",\n        \"uuid\": \"cillum Lorem magna\"\n      },\n      \"name\": \"deserunt adipisicing cillum Ut\",\n      \"uuid\": \"voluptate deserunt est\"\n    }\n  ],\n  \"regions\": [\n    {\n      \"name\": \"dolor\",\n      \"uuid\": \"proident non\"\n    },\n    {\n      \"name\": \"ad sunt eiusmod\",\n      \"uuid\": \"consect\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{barerTokenConsole}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "{{baseUrlConsole}}",
+			"type": "string"
+		}
+	]
+}
