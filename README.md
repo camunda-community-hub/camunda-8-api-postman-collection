@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/Lifecycle-Incubating-blue)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#incubating-)
 
 # camunda-8-api-postman-collection
-Collect all public API for Camunda Platform 8 into a single Postman collection to be easily used by folks
+Collect all public REST APIs for Camunda Platform 8 into a single Postman collection to be easily used by folks. Note that engine operations in Camunda 8 use a gRPC API, not a REST API. 
 
 # Run Collections directly in Postman:
 
