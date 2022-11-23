@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "4c378140-b9ca-4f2d-b4d5-479ab0fcc472",
 		"name": "Camunda Cloud Management API",
-		"description": "# Manage Camunda Cloud Clusters and API Clients via API.\n\n## What do you need to make it work?\n\n1.  You need to get Barer Token from Console to authenticate. To retrieve an access token for the Cloud API client go to: [https://docs.camunda.io/docs/apis-clients/console-api-reference/](https://docs.camunda.io/docs/apis-clients/console-api-reference/In)\n2.  In environment variables set:\n    \n\n*   baseUrlConsole to  \n    [https://api.cloud.camunda.io](https://api.cloud.camunda.io)\n*   barerTokenConsole - set to the Token that you get from the curl described in the guide above",
+		"description": "# Manage Camunda Cloud clusters and API clients via API.\n\n## What do you need to make it work?\n\n1.  You need to get Barer Token from Console to authenticate. To retrieve an access token for the Cloud API client go to: [https://docs.camunda.io/docs/apis-clients/console-api-reference/](https://docs.camunda.io/docs/apis-clients/console-api-reference/In)\n2.  In environment variables set:\n    \n\n*   baseUrlConsole to  \n    [https://api.cloud.camunda.io](https://api.cloud.camunda.io)\n*   barerTokenConsole - set to the Token that you get from the curl described in the guide above",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -103,7 +103,7 @@
 													"body": "{\n  \"name\": \"ea do\",\n  \"ZEEBE_ADDRESS\": \"Lorem sint\",\n  \"ZEEBE_CLIENT_ID\": \"Ut aliqua\",\n  \"ZEEBE_AUTHORIZATION_SERVER_URL\": \"voluptate exercitation cillum\"\n}"
 												},
 												{
-													"name": "cluster is not yours",
+													"name": "Cluster is not yours",
 													"originalRequest": {
 														"method": "GET",
 														"header": [
@@ -151,7 +151,7 @@
 													"body": ""
 												},
 												{
-													"name": "cluster or client not found",
+													"name": "Cluster or client not found",
 													"originalRequest": {
 														"method": "GET",
 														"header": [
@@ -186,7 +186,7 @@
 															]
 														}
 													},
-													"status": "Not Found",
+													"status": "Not found",
 													"code": 404,
 													"_postman_previewlanguage": "text",
 													"header": [
@@ -199,7 +199,7 @@
 													"body": ""
 												},
 												{
-													"name": "the cluster is not ready; please try again later",
+													"name": "The cluster is not ready; try again later",
 													"originalRequest": {
 														"method": "GET",
 														"header": [
@@ -234,7 +234,7 @@
 															]
 														}
 													},
-													"status": "Precondition Failed",
+													"status": "Precondition failed",
 													"code": 412,
 													"_postman_previewlanguage": "text",
 													"header": [
@@ -249,7 +249,7 @@
 											]
 										},
 										{
-											"name": "Delete Client",
+											"name": "Delete client",
 											"request": {
 												"method": "DELETE",
 												"header": [],
@@ -316,7 +316,7 @@
 															]
 														}
 													},
-													"status": "No Content",
+													"status": "No content",
 													"code": 204,
 													"_postman_previewlanguage": "text",
 													"header": [
@@ -329,7 +329,7 @@
 													"body": ""
 												},
 												{
-													"name": "cluster is not yours",
+													"name": "Cluster is not yours",
 													"originalRequest": {
 														"method": "DELETE",
 														"header": [
@@ -377,7 +377,7 @@
 													"body": ""
 												},
 												{
-													"name": "cluster or client not found",
+													"name": "Cluster or client not found",
 													"originalRequest": {
 														"method": "DELETE",
 														"header": [
@@ -412,7 +412,7 @@
 															]
 														}
 													},
-													"status": "Not Found",
+													"status": "Not found",
 													"code": 404,
 													"_postman_previewlanguage": "text",
 													"header": [
@@ -429,7 +429,7 @@
 									]
 								},
 								{
-									"name": "Get Clients",
+									"name": "Get clients",
 									"request": {
 										"method": "GET",
 										"header": [
@@ -501,7 +501,7 @@
 											"body": "[\n  {\n    \"name\": \"sunt incididunt sit\",\n    \"clientId\": \"irure et eu aute\",\n    \"permissions\": [\n      \"Operate\",\n      \"Tasklist\"\n    ]\n  },\n  {\n    \"name\": \"nostrud aliquip ex Ut\",\n    \"clientId\": \"ut dolor\",\n    \"permissions\": [\n      \"Zeebe\",\n      \"Operate\"\n    ]\n  }\n]"
 										},
 										{
-											"name": "cluster is not yours",
+											"name": "Cluster is not yours",
 											"originalRequest": {
 												"method": "GET",
 												"header": [
@@ -543,7 +543,7 @@
 											"body": ""
 										},
 										{
-											"name": "cluster not found",
+											"name": "Cluster not found",
 											"originalRequest": {
 												"method": "GET",
 												"header": [
@@ -572,7 +572,7 @@
 													]
 												}
 											},
-											"status": "Not Found",
+											"status": "Not found",
 											"code": 404,
 											"_postman_previewlanguage": "text",
 											"header": [
@@ -587,7 +587,7 @@
 									]
 								},
 								{
-									"name": "Create Client",
+									"name": "Create client",
 									"request": {
 										"method": "POST",
 										"header": [
@@ -681,7 +681,7 @@
 											"body": "{\n  \"uuid\": \"nisi ea\",\n  \"clientId\": \"est dolor\",\n  \"clientSecret\": \"Duis laboris\"\n}"
 										},
 										{
-											"name": "client names must be unique",
+											"name": "Client names must be unique",
 											"originalRequest": {
 												"method": "POST",
 												"header": [
@@ -719,7 +719,7 @@
 													]
 												}
 											},
-											"status": "Bad Request",
+											"status": "Bad request",
 											"code": 400,
 											"_postman_previewlanguage": "text",
 											"header": [
@@ -732,7 +732,7 @@
 											"body": ""
 										},
 										{
-											"name": "maximum number of clients reached or cluster is not yours",
+											"name": "Maximum number of clients reached or cluster is not yours",
 											"originalRequest": {
 												"method": "POST",
 												"header": [
@@ -783,7 +783,7 @@
 											"body": ""
 										},
 										{
-											"name": "cluster not found",
+											"name": "Cluster not found",
 											"originalRequest": {
 												"method": "POST",
 												"header": [
@@ -821,7 +821,7 @@
 													]
 												}
 											},
-											"status": "Not Found",
+											"status": "Not found",
 											"code": 404,
 											"_postman_previewlanguage": "text",
 											"header": [
@@ -838,7 +838,7 @@
 							]
 						},
 						{
-							"name": "Get Cluster",
+							"name": "Get cluster",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -908,7 +908,7 @@
 									"body": "{\n  \"uuid\": \"amet in\",\n  \"name\": \"et aliqua\",\n  \"created\": \"1969-06-07T23:40:36.215Z\",\n  \"planType\": {\n    \"name\": \"reprehenderit occaecat\",\n    \"uuid\": \"sunt in dol\"\n  },\n  \"region\": {\n    \"name\": \"cupidatat\",\n    \"uuid\": \"anim\"\n  },\n  \"generation\": {\n    \"name\": \"in ea\",\n    \"uuid\": \"sed irure aliquip enim\"\n  },\n  \"channel\": {\n    \"name\": \"Lo\",\n    \"uuid\": \"ut Ut amet\"\n  },\n  \"status\": {\n    \"ready\": \"Updating\",\n    \"optimizeStatus\": \"Healthy\",\n    \"tasklistStatus\": \"Creating\",\n    \"operateStatus\": \"Updating\",\n    \"zeebeStatus\": \"Unhealthy\"\n  },\n  \"links\": {\n    \"optimize\": \"Ut officia do ex quis\",\n    \"tasklist\": \"ea\",\n    \"operate\": \"nulla aliquip\",\n    \"zeebe\": \"tempor ad commodo\"\n  }\n}"
 								},
 								{
-									"name": "cluster not found",
+									"name": "Cluster not found",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -936,7 +936,7 @@
 											]
 										}
 									},
-									"status": "Not Found",
+									"status": "Not found",
 									"code": 404,
 									"_postman_previewlanguage": "text",
 									"header": [
@@ -951,7 +951,7 @@
 							]
 						},
 						{
-							"name": "Delete Cluster",
+							"name": "Delete cluster",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -1004,7 +1004,7 @@
 											]
 										}
 									},
-									"status": "No Content",
+									"status": "No content",
 									"code": 204,
 									"_postman_previewlanguage": "text",
 									"header": [
@@ -1017,7 +1017,7 @@
 									"body": ""
 								},
 								{
-									"name": "cluster not found",
+									"name": "Cluster not found",
 									"originalRequest": {
 										"method": "DELETE",
 										"header": [
@@ -1045,7 +1045,7 @@
 											]
 										}
 									},
-									"status": "Not Found",
+									"status": "Not found",
 									"code": 404,
 									"_postman_previewlanguage": "text",
 									"header": [
@@ -1062,7 +1062,7 @@
 					]
 				},
 				{
-					"name": "Get Clusters",
+					"name": "Get clusters",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1118,7 +1118,7 @@
 					]
 				},
 				{
-					"name": "Create Cluster",
+					"name": "Create cluster",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1152,7 +1152,7 @@
 					},
 					"response": [
 						{
-							"name": "The clusterUuid of your new cluster.",
+							"name": "The clusterUuid of your new cluster",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1194,7 +1194,7 @@
 							"body": "{\n  \"clusterId\": \"labore exercitation\"\n}"
 						},
 						{
-							"name": "name is too long, invalid clusterPlanType, invalid region, no reservations left, invalid channel, or invalid generation",
+							"name": "Name is too long, invalid clusterPlanType, invalid region, no reservations left, invalid channel, or invalid generation",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1223,7 +1223,7 @@
 									]
 								}
 							},
-							"status": "Bad Request",
+							"status": "Bad request",
 							"code": 400,
 							"_postman_previewlanguage": "text",
 							"header": [
@@ -1238,7 +1238,7 @@
 					]
 				},
 				{
-					"name": "Get Parameters",
+					"name": "Get parameters",
 					"request": {
 						"method": "GET",
 						"header": [
