@@ -4,7 +4,7 @@
 
 # camunda-8-api-postman-collection
 
-Collect all public (REST and GrphQl) APIs for Camunda Platform 8 into a single Postman collection to be easily used by folks. Note that engine operations in Camunda 8 use a gRPC API
+Collect all public (REST and GraphQL) APIs for Camunda Platform 8 into a single Postman collection to be easily used by folks. Note that engine operations in Camunda 8 use a gRPC API.
 
 # Run collections directly in Postman
 
