@@ -3,23 +3,29 @@
 [![](https://img.shields.io/badge/Lifecycle-Incubating-blue)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#incubating-)
 
 # camunda-8-api-postman-collection
-Collect all public REST APIs for Camunda Platform 8 into a single Postman collection to be easily used by folks. Note that engine operations in Camunda 8 use a gRPC API, not a REST API. 
 
-# Run Collections directly in Postman:
+Collect all public (REST and GrphQl) APIs for Camunda Platform 8 into a single Postman collection to be easily used by folks. Note that engine operations in Camunda 8 use a gRPC API
 
-## When you fork from the Public API Workspace :arrow_down: take a look at the environment variables and fill them to start playing with endpoints. What will be needed:
-- **Cluster ID** - you can find it in your Cluster Details at https://console.cloud.camunda.io/
-  - Base URL of Operate and Tasklist will be filled with the constant URL(https://bru-2.operate.camunda.io/) and your clusterID
-- **bearerTokenOperate** - To retrieve an access token for the Operate API client go to: https://docs.camunda.io/docs/self-managed/operate-deployment/configuration/
-- **bearerTokenTasklist** - To retrieve an access token for the Tasklist API client go to: https://docs.camunda.io/docs/self-managed/tasklist-deployment/configuration/
-- **bearerTokenConsole** - To retrieve an access token for the Cloud API client go to: https://docs.camunda.io/docs/apis-clients/console-api-reference/
-- In **Global variables** have been defined:
-  - apiVersion - currently v1
-  - baseUrlOperateLocal - default address is localhost:8081 - change it if your Self-Managed Operate has a different address
+# Run collections directly in Postman
+
+## Forking from the Public API Workspace
+
+Take a look at the environment variables and fill them in to start playing with endpoints. What will be needed:
+
+- **Cluster ID** - You can find it in your **Cluster Details** on the [Console](https://console.cloud.camunda.io/).
+  - Base URL of Operate and Tasklist will be filled with the [constant URL](https://bru-2.operate.camunda.io/) and your clusterID.
+- **bearerTokenOperate** - To retrieve an access token for the Operate API client, visit the [Self-Managed Operate deployment and configuration documentation](https://docs.camunda.io/docs/self-managed/operate-deployment/configuration/).
+- **bearerTokenTasklist** - To retrieve an access token for the Tasklist API client, visit the [Self-Managed Tasklist deployment and configuration documentation](https://docs.camunda.io/docs/self-managed/tasklist-deployment/configuration/).
+- **bearerTokenConsole** - To retrieve an access token for the Cloud API client, visit the [Console API reference](https://docs.camunda.io/docs/apis-clients/console-api-reference/).
+- In **Global variables**, define the following:
+  - `apiVersion` - Currently v1.
+  - `baseUrlOperateLocal` - Default address is [localhost:8081](localhost:8081). Change this if your Self-Managed Operate has a different address.
 
 **[Camunda Platform 8 - Public API Workspace](https://www.postman.com/restless-shuttle-19836/workspace/camunda-platform-8/)** 
 
-## Every Collection below has Documentation, where you can see what is needed to make it work. It will be sebset of variables listed above ⬆️
+## Collection documentation
+
+Every collection below offers documentation where you can see what is needed to make it work. This is a subset of the variables listed above.
 
 **Camunda Cloud Management API** 
 [![Camunda Cloud Management API](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20317927-4c378140-b9ca-4f2d-b4d5-479ab0fcc472?action=collection%2Ffork&collection-url=entityId%3D20317927-4c378140-b9ca-4f2d-b4d5-479ab0fcc472%26entityType%3Dcollection%26workspaceId%3Dab1978e0-fee0-4dba-832e-53bdd2a6baa5#?env%5BNew%20Environment%5D=W3sia2V5IjoiYmFzZVVybE9wZXJhdGUiLCJ2YWx1ZSI6Imh0dHBzOi8vYnJ1LTIub3BlcmF0ZS5jYW11bmRhLmlvL3t7Y2x1c3RlcklEfX0iLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6Imh0dHBzOi8vYnJ1LTIub3BlcmF0ZS5jYW11bmRhLmlvL3t7Y2x1c3RlcklEfX0iLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5IjoiYmVhcmVyVG9rZW5PcGVyYXRlIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiIiwic2Vzc2lvbkluZGV4IjoxfSx7ImtleSI6ImJhcmVyVG9rZW5Db25zb2xlIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiIiwic2Vzc2lvbkluZGV4IjoyfSx7ImtleSI6ImJhc2VVcmxDb25zb2xlIiwidmFsdWUiOiJodHRwczovL2FwaS5jbG91ZC5jYW11bmRhLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2FwaS5jbG91ZC5jYW11bmRhLmlvIiwic2Vzc2lvbkluZGV4IjozfSx7ImtleSI6ImJhcmVyVG9rZW5UYXNrbGlzdCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6InNlY3JldCIsInNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6NH0seyJrZXkiOiJiYXNlVXJsVGFza2xpc3QiLCJ2YWx1ZSI6Imh0dHBzOi8vYnJ1LTIudGFza2xpc3QuY2FtdW5kYS5pby97e2NsdXN0ZXJJRH19IiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2JydS0yLnRhc2tsaXN0LmNhbXVuZGEuaW8ve3tjbHVzdGVySUR9fSIsInNlc3Npb25JbmRleCI6NX0seyJrZXkiOiJjbHVzdGVySUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiUHV0IHlvdXIgQ2x1c3RlciBJRCBoZXJlIiwic2Vzc2lvbkluZGV4Ijo2fV0=)
@@ -34,8 +40,9 @@ Collect all public REST APIs for Camunda Platform 8 into a single Postman collec
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20317927-6394943f-b57c-4c04-acf9-391a8614103b?action=collection%2Ffork&collection-url=entityId%3D20317927-6394943f-b57c-4c04-acf9-391a8614103b%26entityType%3Dcollection%26workspaceId%3Dab1978e0-fee0-4dba-832e-53bdd2a6baa5#?env%5BNew%20Environment%5D=W3sia2V5IjoiYmFzZVVybE9wZXJhdGUiLCJ2YWx1ZSI6Imh0dHBzOi8vYnJ1LTIub3BlcmF0ZS5jYW11bmRhLmlvL3t7Y2x1c3RlcklEfX0iLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6Imh0dHBzOi8vYnJ1LTIub3BlcmF0ZS5jYW11bmRhLmlvL3t7Y2x1c3RlcklEfX0iLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5IjoiYmVhcmVyVG9rZW5PcGVyYXRlIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiIiwic2Vzc2lvbkluZGV4IjoxfSx7ImtleSI6ImJhcmVyVG9rZW5Db25zb2xlIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiIiwic2Vzc2lvbkluZGV4IjoyfSx7ImtleSI6ImJhc2VVcmxDb25zb2xlIiwidmFsdWUiOiJodHRwczovL2FwaS5jbG91ZC5jYW11bmRhLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2FwaS5jbG91ZC5jYW11bmRhLmlvIiwic2Vzc2lvbkluZGV4IjozfSx7ImtleSI6ImJhcmVyVG9rZW5UYXNrbGlzdCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6InNlY3JldCIsInNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6NH0seyJrZXkiOiJiYXNlVXJsVGFza2xpc3QiLCJ2YWx1ZSI6Imh0dHBzOi8vYnJ1LTIudGFza2xpc3QuY2FtdW5kYS5pby97e2NsdXN0ZXJJRH19IiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2JydS0yLnRhc2tsaXN0LmNhbXVuZGEuaW8ve3tjbHVzdGVySUR9fSIsInNlc3Npb25JbmRleCI6NX0seyJrZXkiOiJjbHVzdGVySUQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiUHV0IHlvdXIgQ2x1c3RlciBJRCBoZXJlIiwic2Vzc2lvbkluZGV4Ijo2fV0=)
 
 
-## Download exported collections from GitHub repository 
+## Download exported collections from GitHub repository
+
 - [Console](blob/main/Camunda%20Cloud%20Management%20API.postman_collection.json)
 - [Operate SaaS](blob/main/Operate%20Public%20API%20-%20SaaS.postman_collection.json)
-- [Operate Locally](blob/main/Operate%20Public%20API%20-%20Self-Managed.postman_collection.json)
+- [Operate locally](blob/main/Operate%20Public%20API%20-%20Self-Managed.postman_collection.json)
 - [Tasklist](blob/main/TaskList%20Public%20GraphQL%20API.postman_collection.json)
