@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "50f81287-47e1-4eb5-be86-15de0093f25a",
+		"name": "TaskList Public API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28309916"
+	},
+	"item": [
+		{
+			"name": "Forms",
+			"item": [
+				{
+					"name": "Get the form details by formId and processDefinitionKey",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/forms/:formId?processDefinitionKey=",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"forms",
+								":formId"
+							],
+							"query": [
+								{
+									"key": "processDefinitionKey",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "formId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Get variable by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/variables/:key",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"variables",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "",
+									"description": "Key of variable"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Validate/Save Draft Variables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"variables\": [\n    {\n      \"name\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId/variables",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId",
+								"variables"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of task variables by taskId and variableName",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"variableNames\": [\n    \"string\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId/variables/search",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId",
+								"variables",
+								"search"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tasks by parameters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"state\": \"CREATED\",\n  \"assigned\": true,\n  \"assignee\": \"string\",\n  \"taskDefinitionId\": \"string\",\n  \"candidateGroup\": \"string\",\n  \"candidateUser\": \"string\",\n  \"processDefinitionKey\": \"string\",\n  \"processInstanceKey\": \"string\",\n  \"pageSize\": 0,\n  \"followUpDate\": {\n    \"from\": \"2023-07-03T15:24:17.773Z\",\n    \"to\": \"2023-07-03T15:24:17.773Z\"\n  },\n  \"dueDate\": {\n    \"from\": \"2023-07-03T15:24:17.773Z\",\n    \"to\": \"2023-07-03T15:24:17.773Z\"\n  },\n  \"sort\": [\n    {\n      \"field\": \"completionTime\",\n      \"order\": \"ASC\"\n    }\n  ],\n  \"searchAfter\": [\n    \"string\"\n  ],\n  \"searchAfterOrEqual\": [\n    \"string\"\n  ],\n  \"searchBefore\": [\n    \"string\"\n  ],\n  \"searchBeforeOrEqual\": [\n    \"string\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/search",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign a task with taskid",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId/unassign",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId",
+								"unassign"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete a task by taskId and optional variables",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"variables\": [\n    {\n      \"name\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId/complete",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId",
+								"complete"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a task by assignee id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"assignee\": \"string\",\n  \"allowOverrideAssignment\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId/assign",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId",
+								"assign"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get task by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+apiVersion}}/tasks/:taskId",
+							"host": [
+								"{{baseUrl+apiVersion}}"
+							],
+							"path": [
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{barerTokenTasklist}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const getAllHeadersContaining = function(key, response) {",
+					"    var result = '';",
+					"    response.headers.each((header) => {",
+					"        if (String(header.value) === key) {",
+					"            result +=  header.valueOf() + '; ';",
+					"        }",
+					"    });",
+					"    return result;",
+					"}",
+					"",
+					"const baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+					"const username = pm.collectionVariables.get(\"username\");",
+					"const password = pm.collectionVariables.get(\"password\");",
+					"",
+					"",
+					"const postRequest = {",
+					"  url: baseUrl + '/api/login?username=' + username + '&password=' + password,",
+					"  method: 'POST'",
+					"};",
+					"",
+					"pm.sendRequest(postRequest, function (err, response) {",
+					"    console.log(response.headers.get('Set-Cookie'));",
+					"    ",
+					"    let token = response.headers.get('OPERATE-X-CSRF-TOKEN');",
+					"    ",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-HEADER',",
+					"        value: 'OPERATE-X-CSRF-HEADER'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-HEADER',",
+					"        value: 'OPERATE-X-CSRF-HEADER'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-PARAM',",
+					"        value: 'OPERATE-X-CSRF-PARAM'",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'OPERATE-X-CSRF-TOKEN',",
+					"        value: token",
+					"    });",
+					"    pm.request.headers.add({",
+					"        key: 'Cookie',",
+					"        value: getAllHeadersContaining('OPERATE-SESSION', response)",
+					"    });",
+					"});",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl+apiVersion",
+			"value": "{{baseUrl}}/{{apiVersion}}",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "username",
+			"value": "demo",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "demo",
+			"type": "string"
+		},
+		{
+			"key": "apiVersion",
+			"value": "v1",
+			"type": "string"
+		}
+	]
+}
