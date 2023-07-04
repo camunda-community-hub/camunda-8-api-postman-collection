@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "50f81287-47e1-4eb5-be86-15de0093f25a",
 		"name": "TaskList Public API",
+		"description": "## What does it take to make it work?\n\n### 1.Set variables:\n\n- baseUrl - URL of your Self-Managed deployment - default is localhost:8081 - if doesn't work, check your ports mapping - define it in the global or environment scope\n- apiVersion - currently supported is and default is v1 - define it in the global or environment scope\n- username and password - change it if different than demo/demo - in collection variables\n    \n\n### 2\\. Your Operate is up and running in Self-Managed mode\n\n### 3\\. Execute API requests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28309916"
 	},
