@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4cdcc6f4-88af-4d88-a345-270135f8a4c4",
+		"_postman_id": "b111d7fd-b024-4033-bbcb-a1ecbd2214f3",
 		"name": "Operate Public API - Self-Managed",
 		"description": "## What does it take to make it work?\n\n### 1.Set variables:\n\n*   baseUrlOperateLocal - URL of your Self-Managed deployment - default is localhost:8081 - if doesn't work, check your ports mapping - define it in the global or environment scope\n*   apiVersion - currently supported is and default is v1 - define it in the global or environment scope\n*   username and password - change it if different than demo/demo - in collection variables\n    \n\n### 2\\. Your Operate is up and running in Self-Managed mode\n\n### 3\\. Execute API requests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -413,6 +413,203 @@
 									"key": "key",
 									"value": "2251799813685520",
 									"description": "Key of variable"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision definitions",
+			"item": [
+				{
+					"name": "Search for decision definitions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-definitions/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-definitions",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision definition by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-definitions/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-definitions",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision definition"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision requirements",
+			"item": [
+				{
+					"name": "Search for decision requirements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision requirements by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision requirements"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision requirements by key as XML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/:key/xml",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								":key",
+								"xml"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision requirements"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision instances",
+			"item": [
+				{
+					"name": "Search for decision instances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-instances/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-instances",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision instance by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-instances/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-instances",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883-1",
+									"description": "Id of decision instance"
 								}
 							]
 						}

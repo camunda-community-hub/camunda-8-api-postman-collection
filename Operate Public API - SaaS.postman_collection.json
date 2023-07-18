@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d18294fc-dc5a-4729-8dee-17d6985269e9",
+		"_postman_id": "cf84fc35-8fb3-44e6-be4c-0219c4eedcc9",
 		"name": "Operate Public API - SaaS",
 		"description": "# Manage Process Definitions, Instances and Decisions via API.\n\n## What do you need to make it work?\n\n1.  You need to get Barer Token from Operate to authenticate. To retrieve an access token for the Operate API client go to: [https://docs.camunda.io/docs/self-managed/operate-deployment/configuration/](https://docs.camunda.io/docs/self-managed/operate-deployment/configuration/)\n    \n\nand run in terminal:\n\n```\ncurl -X POST -H 'content-type: application/json' -d '{\"client_id\": \"RgVdPv...\", \"client_secret\":\"eDS1~Hg...\",\"audience\":\"operate.camunda.io\",\"grant_type\":\"client_credentials\"}' https://login.cloud.camunda.io/oauth/token\n\n```\n\n2\\. In environment variables set:\n\n*   baseUrlOperate - URL of your Operate - in form like [https://bru-2.operate.camunda.io/{{clusterID}}](https://bru-2.operate.camunda.io/{{clusterID}})\n*   barerTokenOperate - set to the Token that you get from the curl described in the guide above\n*   apiVersion - currently default is v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -339,6 +339,203 @@
 									"key": "key",
 									"value": "2251799813685520",
 									"description": "Key of variable"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision definitions",
+			"item": [
+				{
+					"name": "Search for decision definitions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-definitions/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-definitions",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision definition by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-definitions/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-definitions",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision definition"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision requirements",
+			"item": [
+				{
+					"name": "Search for decision requirements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision requirements by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision requirements"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision requirements by key as XML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/drd/:key/xml",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"drd",
+								":key",
+								"xml"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883",
+									"description": "Key of decision requirements"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision instances",
+			"item": [
+				{
+					"name": "Search for decision instances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-instances/search",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-instances",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get decision instance by key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl+ApiVersion}}/decision-instances/:key",
+							"host": [
+								"{{baseUrl+ApiVersion}}"
+							],
+							"path": [
+								"decision-instances",
+								":key"
+							],
+							"variable": [
+								{
+									"key": "key",
+									"value": "2251799813874883-1",
+									"description": "Id of decision instance"
 								}
 							]
 						}
