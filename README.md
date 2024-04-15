@@ -21,7 +21,7 @@ Take a look at the environment variables and fill them in to start playing with 
   - `apiVersion` - Currently v1.
   - `baseUrlOperateLocal` - Default address is [localhost:8081](localhost:8081). Change this if your Self-Managed Operate has a different address.
 
-**[Camunda Platform 8 - Public API Workspace](https://www.postman.com/restless-shuttle-19836/workspace/camunda-platform-8/)** 
+**[Camunda Platform 8 - Public API Workspace](https://www.postman.com/camundateam/workspace/camunda-8-postman/overview)** 
 
 ## Collection documentation
 
